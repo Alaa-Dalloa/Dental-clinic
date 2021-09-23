@@ -22,3 +22,9 @@ Route::get('/specializations/{id}', 'SpecializationsController@destroy')->name('
 Route::get('/specializations/{id}/edit', 'SpecializationsController@edit')->name('specializations.edit');
 Route::post('/specializations/{id}/update', 'SpecializationsController@update')->name('specializations.update');
 Route::post('/specializations/store', 'SpecializationsController@store')->name('specializations.store');
+Route::get('/patients/create', 'PatientController@create')->name('patients.create');
+Route::get('/patients', 'PatientController@index')->name('patients.index');
+Route::get('/patients/{id}', 'PatientController@destroy')->name('patients.destroy');
+Route::get('/patients/{id}/edit', 'PatientController@edit')->name('patients.edit');
+Route::post('/patients/{id}/update', 'PatientController@update')->name('patients.update');
+Route::post('/patients/store', 'PatientController@store')->name('patients.store');
