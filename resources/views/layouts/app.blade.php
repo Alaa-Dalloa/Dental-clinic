@@ -54,6 +54,16 @@
                                 <a class="dropdown-item" href="{{route ('patients.create')}}">Add Patient</a>
                               </div>
                             </li>
+                             <!-- Dropdown -->
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                Doctors
+                              </a>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{route('doctors.index')}}">All Doctors</a>
+                                <a class="dropdown-item" href="{{route ('doctors.create')}}">Add Doctors</a>
+                              </div>
+                            </li>
                         </ul>
 
                     <!-- Right Side Of Navbar -->
