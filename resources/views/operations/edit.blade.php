@@ -34,7 +34,7 @@
 				    <label for="specialization_id">Specialization:</label>
 				    <select class="form-control" name="specialization_id">
 				    	@foreach($specializations as $one)
-				    	<option value="{{$one->id}}">{{$one->name}}</option>
+				    	<option value="{{$one->id}}">{{$one->Name}}</option>
 				    	@endforeach
 				    </select>
 				  </div>
@@ -52,7 +52,7 @@
 				    <label for="patient_id">Patient:</label>
 				    <select class="form-control" name="patient_id">
 				    	@foreach($patients as $one)
-				    	<option value="{{$one->id}}">{{$one->name}}</option>
+				    	<option value="{{$one->id}}">{{$one->Name}}</option>
 				    	@endforeach
 				    </select>
 				  </div>	 

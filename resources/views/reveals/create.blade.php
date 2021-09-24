@@ -5,7 +5,7 @@
     	<h1 class="text-center">Add Reveal</h1>
     	<div class="box">
     		
-				 <form action="/reveals/store" method="POST"  enctype="multipart/form-data ">
+				 <form action=" {{ route ('reveals.store') }}" method="POST"  enctype="multipart/form-data ">
 				 	@csrf
 				  <div class="form-group">
 				    <label for="drug">Drug:</label>
@@ -27,6 +27,10 @@
 				      name="price">
 				  </div>
 				 
+
+				 
+
+
 				  <div class="form-group">
 				    <label for="specialization_id">Specialization:</label>
 				    <select class="form-control" name="specialization_id">

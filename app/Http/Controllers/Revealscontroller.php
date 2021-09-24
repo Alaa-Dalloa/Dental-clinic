@@ -8,36 +8,37 @@ use App\Patient;
 use App\Specialization;
 use App\Doctor;
 
-
-
 class Revealscontroller extends Controller
 {
-   public function create(){
+   public function create()
+   {
    	   $patients= Patient::all();
          $specializations= Specialization::all();
          $doctors= Doctor::all();
 	   	return view('reveals.create' , compact ('specializations') ,compact ('patients') ,compact ('doctors') );
    }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 	    $reveal = new Reveal;
 	    $reveal->drug        = $request->drug;
 	    $reveal->price       = $request->price;
 	    $reveal->specialization_id = $request->specialization_id;
 	    $reveal->doctor_id    = $request->doctor_id;
 	    $reveal->patient_id = $request->patient_id;
-
 	    $reveal->save();
 	   	return back();
    }
 
-    public function index(){
+    public function index()
+    {
      $reveals= Reveal::all();
 	   return view('reveals.index' , compact('reveals'));
    }
 
 
-     public function destroy($id){
+     public function destroy($id)
+     {
 	   $reveal= reveal::where('id' , $id)->first();
 	   $reveal->delete();
 
@@ -45,7 +46,8 @@ class Revealscontroller extends Controller
    }
 
 
-      public function edit($id){
+      public function edit($id)
+      {
 	   $specializations= Specialization::find($id);
       $patients= Patient::find($id);
       $doctors= Doctor::find($id);
@@ -62,8 +64,6 @@ class Revealscontroller extends Controller
 	    $reveal->specialization_id = $request->specialization_id;
 	    $reveal->doctor_id    = $request->doctor_id;
 	    $reveal->patient_id = $request->patient_id;
-
-
 	    $reveal->save();
 	   	return back();
    }

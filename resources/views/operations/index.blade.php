@@ -20,11 +20,11 @@
 			     <tr>
 			        <td>{{ $operation->id }}</td>
 			        <td>{{ $operation->date }}</td>
-			        <td>{{ $operation->specialization }}</td>
-			        <td>{{ $operation->doctor}}</td>
-			        <td>{{ $operation->patient }}</td>
+			        <td>{{ $operation->specialization_id}}</td>
+			        <td>{{ $operation->doctor_id}}</td>
+			        <td>{{ $operation->patient_id }}</td>
 			        <td>
-			        	<a href="/roperations/{{ $operation->id }}/edit" class="btn btn-success">Edit</a>
+			        	<a href="/operations/{{ $operation->id }}/edit" class="btn btn-success">Edit</a>
 			        	<a href="/operations/{{ $operation->id }}" class="btn btn-danger">Delete</a>
 			        </td>
 				<tr>
