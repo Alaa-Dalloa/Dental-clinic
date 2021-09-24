@@ -6,31 +6,31 @@
 	<form action=" {{ route ('reservations.store') }}"method="POST" enctype="multipart/form-data">
 	  @csrf
 			  <div class="form-group">
-			    <label for="Time">Time:</label>
+			    <label for="time">time:</label>
 			    <input type="string" 
 			    class="form-control"
-			     placeholder="Enter Time" 
-			     id="Time"
-			     Time="Time">
+			     placeholder="Enter time" 
+			     id="time"
+			     time="time">
 			   </div>
 
 
 
               <div class="form-group">
-			    <label for="Date">Date:</label>
+			    <label for="Date">date:</label>
 			    <input type="string" 
 			    class="form-control"
-			     placeholder="Enter Date" 
-			     id="Date"
-			     Date="Date">
+			     placeholder="Enter date" 
+			     id="date"
+			     date="date">
 			   </div>
 
 
                 <div class="form-group">
-				    <label for="patient_id">Patient:</label>
+				    <label for="patient_id">patient:</label>
 				    <select class="form-control" name="patient_id">
-				    	@foreach($patients as $one)
-				    	<option value="{{$one->id}}">{{$one->name}}</option>
+				    	@foreach($patients as $patient)
+				    	<option value="{{$patient->id}}">{{$patient->Name}}</option>
 				    	@endforeach
 				    </select>
 				  </div>
@@ -40,8 +40,8 @@
 				   <div class="form-group">
 				    <label for="specialization_id">Specialization:</label>
 				    <select class="form-control" name="specialization_id">
-				    	@foreach($specializations as $one)
-				    	<option value="{{$one->id}}">{{$one->name}}</option>
+				    	@foreach($specializations as $specialization)
+				    	<option value="{{$specialization->id}}">{{$specialization->Name}}</option>
 				    	@endforeach
 				    </select>
 				  </div>

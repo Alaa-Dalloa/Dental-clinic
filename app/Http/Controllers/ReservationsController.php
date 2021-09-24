@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Reservation;
+use App\Patient;
+use App\Specialization;
 class ReservationsController extends Controller
 {
     public function create ()
  {
-   return view ('reservations.create');
+    $patients= Patient::all();
+    $specializations= Specialization::all();
+   return view ('reservations.create' , compact ('specializations') , compact ('patients'));
  }
  public function store(Request $request)
  {
@@ -32,9 +36,10 @@ public function destroy($id)
 
 }
 public function edit ($id)
-{
+{  $specializations= Specialization::find($id);
+    $patients= Patient::find($id);
    $reservation= reservation::find($id);
-   return view ('reservations.edit' , compact('reservation'));
+   return view ('reservations.edit' , compact('reservation') , compact ('specializations') , compact ('patients'));
 
 }
 public function update($id , Request $request)

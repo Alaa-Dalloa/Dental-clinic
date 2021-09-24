@@ -7,33 +7,33 @@
 	  @csrf 
 
 	         <div class="form-group">
-			    <label for="Time">Time:</label>
+			    <label for="time">time:</label>
 			    <input type="string" 
 			    class="form-control"
-			     placeholder="Enter Time" 
-			     id="Time"
-			     value="{{ $reservation->Time}}"
-			     Time="Time">
+			     placeholder="Enter time" 
+			     id="time"
+			     value="{{ $reservation->time}}"
+			     time="time">
 			   </div>
 
 
 
-              <div class="form-group">H
-			    <label for="Date">Date:</label>
+              <div class="form-group">
+			    <label for="date">date:</label>
 			    <input type="string" 
 			    class="form-control"
-			     placeholder="Enter Date" 
-			     id="Date"
-			     value="{{ $reservation->Date}}"
-			     Date="Date">
+			     placeholder="Enter date" 
+			     id="date"
+			     value="{{ $reservation->date}}"
+			     Date="date">
 			   </div>
 
 
                 <div class="form-group">
 				    <label for="patient_id">Patient:</label>
 				    <select class="form-control" name="patient_id"  value="{{ $reservation->patient}}">
-				    	@foreach($patients as $one)
-				    	<option value="{{$one->id}}">{{$one->name}}</option>
+				    	@foreach($patients as $patient)
+				    	<option value="{{$patient->id}}">{{$patient->Name}}</option>
 				    	@endforeach
 				    </select>
 				  </div>
@@ -43,8 +43,8 @@
 				   <div class="form-group">
 				    <label for="specialization_id">Specialization:</label>
 				    <select class="form-control" name="specialization_id"  value="{{ $reservation->specialization}}">
-				    	@foreach($specializations as $one)
-				    	<option value="{{$one->id}}">{{$one->name}}</option>
+				    	@foreach($specializations as $specialization)
+				    	<option value="{{$specialization->id}}">{{$specialization->Name}}</option>
 				    	@endforeach
 				    </select>
 				  </div>
