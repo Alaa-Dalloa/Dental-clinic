@@ -33,7 +33,31 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                             <!-- Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            Reveals
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/reveals/create">All Reveals</a>
+                                <a class="dropdown-item" href="/reveals">Add Reveal</a>
+                               
+                            </div>
+                        </li>
 
+
+
+                           <!--Operations-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                           Operations
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/operations">All Operations</a>
+                                <a class="dropdown-item" href="/operations/create">Add Operation</a>
+                               
+                            </div>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
