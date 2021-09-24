@@ -4,14 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Reveal;
+use App\Patient;
+use App\Specialization;
+use App\Doctor;
 
 
 
 class Revealscontroller extends Controller
 {
    public function create(){
-	   
-	   	return view('reveals.create');
+   	   $patients= Patient::all();
+         $specializations= Specialization::all();
+         $doctors= Doctor::all();
+	   	return view('reveals.create' , compact ('specializations') ,compact ('patients') ,compact ('doctors') );
    }
 
     public function store(Request $request){
@@ -27,15 +32,13 @@ class Revealscontroller extends Controller
    }
 
     public function index(){
-
-	   return view('reveals.index');
+     $reveals= Reveal::all();
+	   return view('reveals.index' , compact('reveals'));
    }
 
 
      public function destroy($id){
-	   //$meals = meal::where('id',$id)->first();
-	   $reveal = Reveal::find($id);
-
+	   $reveal= reveal::where('id' , $id)->first();
 	   $reveal->delete();
 
 	   return back();
@@ -43,10 +46,12 @@ class Revealscontroller extends Controller
 
 
       public function edit($id){
-	   //$meals = meal::where('id',$id)->first();
+	   $specializations= Specialization::find($id);
+      $patients= Patient::find($id);
+      $doctors= Doctor::find($id);
 	   $reveal = Reveal::find($id);
 
-	   return view ('reveals.edit');
+	   return view ('reveals.edit' , compact('reveal') ,compact('specializations'),compact('patients'),compact('doctors') );
    }
 
       public function update($id,Request $request){
