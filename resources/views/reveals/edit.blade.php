@@ -14,7 +14,7 @@
 				     control" 
 				     placeholder="Enter drug name"
 				      id="name"
-				      value="{{ $reveal->name }} " 
+				      value="{{ $reveal->drug }} " 
 				      name="drug">
 				  </div>
 
@@ -25,7 +25,7 @@
 				     class="form-control" 
 				     placeholder="Enter price"
 				      id="price"
-				      value="{{ $reveal->name }} " 
+				      value="{{ $reveal->price }} " 
 				      name="price">
 				  </div>
 				 
@@ -35,7 +35,7 @@
 
 				  <div class="form-group">
 				    <label for="specialization_id">Specialization:</label>
-				    <select class="form-control" name="specialization_id"  value="{{ $reveal->name }} " >
+				    <select class="form-control" name="specialization_id"  value="{{ $reveal->specialization }} " >
 				    	@foreach($specializations as $one)
 				    	<option value="{{$one->id}}">{{$one->name}}</option>
 				    	@endforeach
@@ -45,7 +45,7 @@
 
 				    <div class="form-group">
 				    <label for="doctor_id">Doctor:</label>
-				    <select class="form-control" name="doctor_id"  value="{{ $reveal->name }} " >
+				    <select class="form-control" name="doctor_id"  value="{{ $reveal->doctor }} " >
 				    	@foreach($doctors as $one)
 				    	<option value="{{$one->id}}">{{$one->name}}</option>
 				    	@endforeach
@@ -55,7 +55,7 @@
 
 				    <div class="form-group">
 				    <label for="patient_id">Patient:</label>
-				    <select class="form-control" name="patient_id"  value="{{ $reveal->name }} " >
+				    <select class="form-control" name="patient_id"  value="{{ $reveal->patient }} " >
 				    	@foreach($patients as $one)
 				    	<option value="{{$one->id}}">{{$one->name}}</option>
 				    	@endforeach

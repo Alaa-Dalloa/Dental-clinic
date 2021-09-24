@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DENTACARE</title>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'DENTACARE') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -24,7 +25,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    DENTACARE
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -33,32 +34,114 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+
                              <!-- Dropdown -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                            Reveals
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/reveals/create">All Reveals</a>
-                                <a class="dropdown-item" href="/reveals">Add Reveal</a>
-                               
-                            </div>
-                        </li>
+
+                              <!-- Reveals -->
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                Reveals
+                              </a>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{route('reveals.index')}}">All Reveals</a>
+                                <a class="dropdown-item" href="{{route ('reveals.create')}}">Add Reveal</a>
+                              </div>
+                            </li>
 
 
 
-                           <!--Operations-->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                           Operations
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/operations">All Operations</a>
-                                <a class="dropdown-item" href="/operations/create">Add Operation</a>
-                               
-                            </div>
-                        </li>
-                    </ul>
+
+                       <!-- Operations -->
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                Operations
+                              </a>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{route('operations.index')}}">All Operations</a>
+                                <a class="dropdown-item" href="{{route ('operations.create')}}">Add Operation</a>
+                              </div>
+                            </li>
+
+
+                       <!-- Specializations -->
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                Specializations
+                              </a>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{route('specializations.index')}}">All Specializations</a>
+                                <a class="dropdown-item" href="{{route ('specializations.create')}}">Add Specializations</a>
+                              </div>
+                            </li>
+
+
+                            <!-- Dropdown -->
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                Patient
+                              </a>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{route('patients.index')}}">All Patient</a>
+                                <a class="dropdown-item" href="{{route ('patients.create')}}">Add Patient</a>
+                              </div>
+                            </li>
+
+
+                             <!-- Dropdown -->
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                Doctors
+                              </a>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{route('doctors.index')}}">All Doctors</a>
+                                <a class="dropdown-item" href="{{route ('doctors.create')}}">Add Doctors</a>
+                              </div>
+                            </li>
+
+
+                            <!-- Dropdown -->
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                Offers
+                              </a>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{route('offers.index')}}">All Offers</a>
+                                <a class="dropdown-item" href="{{route ('offers.create')}}">Add Offers</a>
+                              </div>
+                            </li>
+
+
+
+                              <!-- Services -->
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                Services
+                              </a>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{route('services.index')}}">All Services</a>
+                                <a class="dropdown-item" href="{{route ('services.create')}}">Add Service</a>
+                              </div>
+                            </li>
+
+
+                                    <!-- Reservations -->
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                Reservations
+                              </a>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{route('reservations.index')}}">All Reservations</a>
+                                <a class="dropdown-item" href="{{route ('reservations.create')}}">Add Reservation</a>
+                              </div>
+                            </li>
+
+
+
+
+
+
+                        </ul>
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

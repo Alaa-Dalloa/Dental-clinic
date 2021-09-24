@@ -19,7 +19,7 @@
 
 				
 				  <div class="form-group">
-				    <label for="price">price:</label>
+				    <label for="price">Price:</label>
 				    <input type="double"
 				     class="form-control" 
 				     placeholder="Enter price"
