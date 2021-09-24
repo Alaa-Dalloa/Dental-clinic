@@ -12,7 +12,7 @@
 	     placeholder="Enter name" 
 	     id="name"
 	     value="{{ $doctor->name}}"
-	     Name="name">
+	     name="name">
 	   </div>
 	   <div class="form-group">
 	    <label for="phone">phone:</label>
@@ -25,13 +25,13 @@
 	    <label for="email">Email:</label>
 	    <input type="string"
 	     class="form-control"
-	      placeholder="Enter Email" id="email" value="{{ $doctor->email}}" name="email">
+	      placeholder="Enter email" id="email" value="{{ $doctor->email}}" name="email">
 	  </div>
-	  <div class="form-group">
-	    <label for="specialization_id">Specialization:</label>
+	   <div class="form-group">
+	    <label for="specialization_id">specialization:</label>
 	    <select class="form-control" name="specialization_id">
 	    	@foreach($specializations as $one)
-	    	<option value="{{ $one->id }}">{{ $one->name }}</option>
+	    	<option value="{{ $one->id }}">{{$one->Name}}</option>
 	    	@endforeach
 	    </select>
 	  </div>

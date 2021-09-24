@@ -34,3 +34,9 @@ Route::get('/doctors/{id}', 'DoctorController@destroy')->name('doctors.destroy')
 Route::get('/doctors/{id}/edit', 'DoctorController@edit')->name('doctors.edit');
 Route::post('/doctors/{id}/update', 'DoctorController@update')->name('doctors.update');
 Route::post('/doctors/store', 'DoctorController@store')->name('doctors.store');
+Route::get('/offers/create', 'OfferController@create')->name('offers.create');
+Route::get('/offers', 'OfferController@index')->name('offers.index');
+Route::get('/offers/{id}', 'OfferController@destroy')->name('offers.destroy');
+Route::get('/offers/{id}/edit', 'OfferController@edit')->name('offers.edit');
+Route::post('/offers/{id}/update', 'OfferController@update')->name('offers.update');
+Route::post('/offers/store', 'OfferController@store')->name('offers.store');
