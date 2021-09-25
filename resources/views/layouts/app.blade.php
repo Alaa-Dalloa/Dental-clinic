@@ -35,22 +35,6 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
-                             <!-- Dropdown -->
-
-                              <!-- Reveals -->
-                            <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                Reveals
-                              </a>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{route('reveals.index')}}">All Reveals</a>
-                                <a class="dropdown-item" href="{{route ('reveals.create')}}">Add Reveal</a>
-                              </div>
-                            </li>
-
-
-
-
                        <!-- Operations -->
                             <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -95,6 +79,18 @@
                               <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{{route('doctors.index')}}">All Doctors</a>
                                 <a class="dropdown-item" href="{{route ('doctors.create')}}">Add Doctors</a>
+                              </div>
+                            </li>
+                            <!-- Dropdown -->
+
+                              <!-- Reveals -->
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                Reveals
+                              </a>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{route('reveals.index')}}">All Reveals</a>
+                                <a class="dropdown-item" href="{{route ('reveals.create')}}">Add Reveal</a>
                               </div>
                             </li>
 

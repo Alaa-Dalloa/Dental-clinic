@@ -21,17 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
-
-Route::get('/reveals/create', 'RevealsController@create')->name('reveals.create');
-Route::get('/reveals', 'RevealsController@index')->name('reveals.index');
-Route::get('/reveals/{id}', 'RevealsController@destroy')->name('reveals.destroy');
-Route::get('/reveals/{id}/edit', 'RevealsController@edit')->name('reveals.edit');
-Route::post('/reveals/{id}/update', 'RevealsController@update')->name('reveals.update');
-Route::post('/reveals/store', 'RevealsController@store')->name('reveals.store');
-
-
-
-
 Route::get('/operations/create', 'OperationsController@create')->name('operations.create');
 Route::get('/operations', 'OperationsController@index')->name('operations.index');
 Route::get('/operations/{id}', 'OperationsController@destroy')->name('operations.destroy');
@@ -64,6 +53,15 @@ Route::get('/doctors/{id}', 'DoctorController@destroy')->name('doctors.destroy')
 Route::get('/doctors/{id}/edit', 'DoctorController@edit')->name('doctors.edit');
 Route::post('/doctors/{id}/update', 'DoctorController@update')->name('doctors.update');
 Route::post('/doctors/store', 'DoctorController@store')->name('doctors.store');
+
+
+Route::get('/reveals/create', 'RevealController@create')->name('reveals.create');
+Route::get('/reveals', 'RevealController@index')->name('reveals.index');
+Route::get('/reveals/{id}', 'RevealController@destroy')->name('reveals.destroy');
+Route::get('/reveals/{id}/edit', 'RevealController@edit')->name('reveals.edit');
+Route::post('/reveals/{id}/update', 'RevealController@update')->name('reveals.update');
+Route::post('/reveals/store', 'RevealController@store')->name('reveals.store');
+
 
 
 
