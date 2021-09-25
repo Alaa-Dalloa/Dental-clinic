@@ -7,6 +7,7 @@
 			    <thead>
 			      <tr>
 			        <th>ID</th>
+			        <th>Name</th>
 			        <th>Date</th>
 			        <th>Specialization</th>
 			         <th>Doctor</th>
@@ -19,6 +20,7 @@
 			    @foreach($operations as $operation)
 			     <tr>
 			        <td>{{ $operation->id }}</td>
+			        <td>{{ $operation->name }}</td>
 			        <td>{{ $operation->date }}</td>
 			        <td>{{ $operation->specialization_id}}</td>
 			        <td>{{ $operation->doctor_id}}</td>

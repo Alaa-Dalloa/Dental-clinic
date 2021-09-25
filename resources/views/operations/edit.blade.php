@@ -20,7 +20,7 @@
 				
 				  <div class="form-group">
 				    <label for="date">Date:</label>
-				    <input type="string"
+				    <input type="date"
 				     class="form-control" 
 				     placeholder="Enter date"
 				      id="date"
@@ -35,8 +35,8 @@
 				  <div class="form-group">
 				    <label for="specialization_id">Specialization:</label>
 				    <select class="form-control" name="specialization_id">
-				    	@foreach($specializations as $specialization)
-				    	<option value="{{$specialization->id}}">{{$specialization->Name}}</option>
+				    	@foreach($specializations as $one)
+				    	<option value="{{$one->id}}">{{$one->Name}}</option>
 				    	@endforeach
 				    </select>
 				  </div>

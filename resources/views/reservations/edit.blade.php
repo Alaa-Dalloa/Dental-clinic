@@ -8,32 +8,32 @@
 
 	         <div class="form-group">
 			    <label for="time">time:</label>
-			    <input type="string" 
+			    <input type="time" 
 			    class="form-control"
 			     placeholder="Enter time" 
 			     id="time"
 			     value="{{ $reservation->time}}"
-			     time="time">
+			     name="time">
 			   </div>
 
 
 
               <div class="form-group">
 			    <label for="date">date:</label>
-			    <input type="string" 
+			    <input type="date" 
 			    class="form-control"
 			     placeholder="Enter date" 
 			     id="date"
 			     value="{{ $reservation->date}}"
-			     Date="date">
+			     name="date">
 			   </div>
 
 
                 <div class="form-group">
 				    <label for="patient_id">Patient:</label>
 				    <select class="form-control" name="patient_id"  value="{{ $reservation->patient}}">
-				    	@foreach($patients as $patient)
-				    	<option value="{{$patient->id}}">{{$patient->Name}}</option>
+				    	@foreach($patients as $one)
+				    	<option value="{{$one->id}}">{{$one->Name}}</option>
 				    	@endforeach
 				    </select>
 				  </div>

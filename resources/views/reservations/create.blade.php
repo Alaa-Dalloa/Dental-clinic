@@ -7,30 +7,30 @@
 	  @csrf
 			  <div class="form-group">
 			    <label for="time">time:</label>
-			    <input type="string" 
+			    <input type="time" 
 			    class="form-control"
 			     placeholder="Enter time" 
 			     id="time"
-			     time="time">
+			     name="time">
 			   </div>
 
 
 
               <div class="form-group">
-			    <label for="Date">date:</label>
-			    <input type="string" 
+			    <label for="date">date:</label>
+			    <input type="date" 
 			    class="form-control"
 			     placeholder="Enter date" 
 			     id="date"
-			     date="date">
+			     name="date">
 			   </div>
 
 
                 <div class="form-group">
 				    <label for="patient_id">patient:</label>
 				    <select class="form-control" name="patient_id">
-				    	@foreach($patients as $patient)
-				    	<option value="{{$patient->id}}">{{$patient->Name}}</option>
+				    	@foreach($patients as $one)
+				    	<option value="{{$one->id}}">{{$one->Name}}</option>
 				    	@endforeach
 				    </select>
 				  </div>

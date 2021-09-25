@@ -35,7 +35,7 @@ use App\Offer;
 		}
 		public function edit ($id)
 		{  
-			$offers= Offer::find($id);
+		   $offers= Offer::find($id);
 		   $service= service::find($id);
 		   return view ('services.edit' , compact('service') , compact('offers'));
 
