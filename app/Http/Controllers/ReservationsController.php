@@ -25,7 +25,8 @@ class ReservationsController extends Controller
     return back();
  }
 public function index ()
- { $reservations= Reservation::all();
+ { 
+  $reservations= Reservation::all();
    return view ('reservations.index' , compact('reservations') );
  }
 public function destroy($id)
@@ -37,7 +38,7 @@ public function destroy($id)
 }
 public function edit ($id)
 {  $specializations= Specialization::find($id);
-    $patients= Patient::find($id);
+   $patients= Patient::find($id);
    $reservation= reservation::find($id);
    return view ('reservations.edit' , compact('reservation') , compact ('specializations') , compact ('patients'));
 
