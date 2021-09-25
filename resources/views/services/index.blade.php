@@ -17,9 +17,9 @@
                     @foreach ($services as $service)
                     <tr>
                       <td>{{$service->id}}</td>
-                      <td>{{$service->Name}}</td>
-                      <td>{{$service->Detailes}}</td>
-                      <td>{{$service->Offer_id}}</td>
+                      <td>{{$service->name}}</td>
+                      <td>{{$service->detailes}}</td>
+                      <td>{{$service->offer_id}}</td>
                       <td>
                         <a href="/services/{{ $service->id }}/edit" class="btn btn-success">Edit</a>
 

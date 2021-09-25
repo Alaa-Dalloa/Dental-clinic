@@ -6,26 +6,28 @@
 			<form action=" {{ route ('services.store') }}"method="POST" enctype="multipart/form-data">
 			  @csrf
 			  <div class="form-group">
-			    <label for="Name">Name:</label>
+			    <label for="name">name:</label>
 			    <input type="string" 
 			    class="form-control"
-			     placeholder="Enter Name" 
-			     id="Name"
-			     Name="Name">
+			     placeholder="Enter name" 
+			     id="name"
+			     name="name">
 			   </div>
 
 			     <div class="form-group">
-				    <label for="detailes">Detailes:</label>
-				      <textarea name="detailes"  class="form-control">
-				      	
-				      </textarea>
-				  </div>
+			    <label for="detailes">detailes:</label>
+			    <input type="text" 
+			    class="form-control"
+			     placeholder="Enter detailes" 
+			     id="detailes"
+			     name="detailes">
+			   </div>
 
 
 				   <div class="form-group">
 				    <label for="photo">Photo:</label>
 				    <input type="file"
-				     class="form-control" 
+				     class="form-control" placeholder="Enter photo"  id="photo"
 				      name="photo">
 				  </div>
 
@@ -36,7 +38,7 @@
 				    <label for="offer_id">Offer:</label>
 				    <select class="form-control" name="offer_id">
 				    	@foreach($offers as $one)
-				    	<option value="{{$one->id}}">{{$one->name}}</option>
+				    	<option value="{{$one->id}}">{{$one->Name}}</option>
 				    	@endforeach
 				    </select>
 				  </div>
