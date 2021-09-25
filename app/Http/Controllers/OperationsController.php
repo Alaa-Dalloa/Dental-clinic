@@ -4,17 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Operation;
-
+use App\Doctor;
+use App\Patient;
+use App\Specialization;
 
 
 class Operationscontroller extends Controller
 {
    public function create(){
-	   
-	   	return view('operations.create');
+	      $doctors= Doctor::all();
+	      $patients= patient::all();
+	      $specializations= Specialization::all();
+	   	return view('operations.create' , compact('doctors') , compact('patients') , compact('specializations'));
    }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 	    $operation = new Operation;
 	    $operation->name        = $request->name;
 	    $operation->date       = $request->date;
@@ -26,30 +31,32 @@ class Operationscontroller extends Controller
 	   	return back();
    }
 
-    public function index(){
-
-	   return view('operations.index');
+    public function index()
+    {
+      $operations= operation::all();
+	   return view('operations.index' , compact('operations'));
    }
 
 
-     public function destroy($id){
-	   //$meals = meal::where('id',$id)->first();
-	   $operation = Operation::find($id);
-
-	   $operation->delete();
-
-	   return back();
-   }
+     public function destroy($id)
+     {
+	   $operation= operation::where('id' , $id)->first();
+		$operation->delete();
+		  return back();
+     }
 
 
-      public function edit($id){
-	   //$meals = meal::where('id',$id)->first();
-	   $operation = Operation::find($id);
+      public function edit($id)
+      {
+         $specializations= Specialization::find($id);
+         $doctors= Doctor::find($id);
+		   $patients= Patient::find($id);
+		   $operation= operation::find($id);
+	   return view ('operations.edit' , compact('operation') , compact('patients') , compact('doctors') , compact('specializations'));
+     }
 
-	   return view ('operations.edit');
-   }
-
-      public function update($id,Request $request){
+      public function update($id,Request $request)
+      {
 	 
 	    $operation = Operation::find($id);
 	    $operation->name        = $request->name;
@@ -57,8 +64,6 @@ class Operationscontroller extends Controller
 	    $operation->specialization_id = $request->specialization_id;
 	    $operation->doctor_id    = $request->doctor_id;
 	    $operation->patient_id = $request->patient_id;
-
-
 	    $operation->save();
 	   	return back();
    }

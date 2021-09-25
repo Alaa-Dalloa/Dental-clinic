@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="container"> 
     	<h1 class="text-center">Add Operation</h1>
@@ -19,7 +18,7 @@
 				
 				  <div class="form-group">
 				    <label for="date">Date:</label>
-				    <input type="double"
+				    <input type="string"
 				     class="form-control" 
 				     placeholder="Enter date"
 				      id="date"
@@ -33,8 +32,8 @@
 				  <div class="form-group">
 				    <label for="specialization_id">Specialization:</label>
 				    <select class="form-control" name="specialization_id">
-				    	@foreach($specializations as $one)
-				    	<option value="{{$one->id}}">{{$one->Name}}</option>
+				    	@foreach($specializations as $specialization)
+				    	<option value="{{$specialization->id}}">{{$specialization->Name}}</option>
 				    	@endforeach
 				    </select>
 				  </div>

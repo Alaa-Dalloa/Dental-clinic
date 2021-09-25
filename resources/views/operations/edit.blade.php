@@ -13,16 +13,18 @@
 				     class="form-control" 
 				     placeholder="Enter name"
 				      id="name"
+				      value="{{ $operation->name}}"
 				      name="name">
 				  </div>
 
 				
 				  <div class="form-group">
 				    <label for="date">Date:</label>
-				    <input type="double"
+				    <input type="string"
 				     class="form-control" 
 				     placeholder="Enter date"
 				      id="date"
+				      value="{{ $operation->date}}"
 				      name="date">
 				  </div>
 				 
@@ -33,8 +35,8 @@
 				  <div class="form-group">
 				    <label for="specialization_id">Specialization:</label>
 				    <select class="form-control" name="specialization_id">
-				    	@foreach($specializations as $one)
-				    	<option value="{{$one->id}}">{{$one->Name}}</option>
+				    	@foreach($specializations as $specialization)
+				    	<option value="{{$specialization->id}}">{{$specialization->Name}}</option>
 				    	@endforeach
 				    </select>
 				  </div>
