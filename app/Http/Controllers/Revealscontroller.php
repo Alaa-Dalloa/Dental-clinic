@@ -12,7 +12,7 @@ class Revealscontroller extends Controller
 {
    public function create()
    {
-   	   $patients= Patient::all();
+   	     $patients= Patient::all();
          $specializations= Specialization::all();
          $doctors= Doctor::all();
 	   	return view('reveals.create' , compact ('specializations') ,compact ('patients') ,compact ('doctors') );
@@ -32,7 +32,7 @@ class Revealscontroller extends Controller
 
     public function index()
     {
-     $reveals= Reveal::all();
+       $reveals= Reveal::all();
 	   return view('reveals.index' , compact('reveals'));
    }
 
@@ -49,11 +49,11 @@ class Revealscontroller extends Controller
       public function edit($id)
       {
 	   $specializations= Specialization::find($id);
-      $patients= Patient::find($id);
-      $doctors= Doctor::find($id);
+       $patients= Patient::find($id);
+       $doctor= doctor::find($id);
 	   $reveal = Reveal::find($id);
 
-	   return view ('reveals.edit' , compact('reveal') ,compact('specializations'),compact('patients'),compact('doctors') );
+	   return view ('reveals.edit' , compact('reveals') ,compact('specializations'),compact('patients'),compact('doctor') );
    }
 
       public function update($id,Request $request){

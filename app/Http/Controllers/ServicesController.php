@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Service;
+use App\Offer;
+
     class ServicesController extends Controller
 		{
+
+			
 		    public function create ()
 		 {
-		   return view ('services.create');
+		   $offers= Offer::all();
+		   return view ('services.create',compact ('offers'));
 		 }
 		 public function store(Request $request)
 		 {
@@ -33,8 +38,9 @@ use App\Service;
 		}
 		public function edit ($id)
 		{
+			$offers= Offer::all();
 		   $service= service::find($id);
-		   return view ('services.edit' , compact('services'));
+		   return view ('services.edit' , compact('services'),compact('offers'));
 
 		}
 		public function update($id , Request $request)

@@ -4,14 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Operation;
+use App\Specialization;
+use App\Doctor;
+use App\Patient;
 
 
 
 class Operationscontroller extends Controller
 {
-   public function create(){
-	   
-	   	return view('operations.create');
+   public function create()
+   {
+	    $patients= Patient::all();
+        $specializations= Specialization::all();
+        $doctors= Doctor::all();
+	   	return view('operations.create',compact ('patients'),compact ('specializations'),compact ('doctors'));
    }
 
     public function store(Request $request){
@@ -26,15 +32,17 @@ class Operationscontroller extends Controller
 	   	return back();
    }
 
-    public function index(){
-
-	   return view('operations.index');
+    public function index()
+    {
+      $operations= Operation::all();
+	   return view('operations.index',compact ('operations'));
    }
 
 
      public function destroy($id){
 	   //$meals = meal::where('id',$id)->first();
-	   $operation = Operation::find($id);
+	   //$operations = Operation::find($id);
+       $operation= operation::where('id' , $id)->first();
 
 	   $operation->delete();
 
@@ -44,9 +52,12 @@ class Operationscontroller extends Controller
 
       public function edit($id){
 	   //$meals = meal::where('id',$id)->first();
-	   $operation = Operation::find($id);
+	   $operations = Operation::find($id);
+	   $specializations= Specialization::find($id);
+       $patients= Patient::find($id);
+       $doctor= doctor::find($id);
 
-	   return view ('operations.edit');
+	   return view ('operations.edit',compact ('operations'),compact ('specializations'),compact ('patients'),compact ('doctor'));
    }
 
       public function update($id,Request $request){

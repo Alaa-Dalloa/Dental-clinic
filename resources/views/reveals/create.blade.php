@@ -10,8 +10,7 @@
 				  <div class="form-group">
 				    <label for="drug">Drug:</label>
 				    <input type="string"
-				     class="form-
-				     control" 
+				     class="form-control" 
 				     placeholder="Enter drug name"
 				      id="name"
 				      name="drug">
