@@ -29,9 +29,9 @@
 	  </div>
 	   <div class="form-group">
 	    <label for="specialization_id">specialization:</label>
-	    <select class="form-control" name="specialization_id">
-	    	@foreach($specializations as $one)
-	    	<option value="{{ $one->id }}">{{$one->Name}}</option>
+	    <select class="form-control" name="specialization_id" value="{{ $doctor->specialization_id}} ">
+	    	@foreach($specializations as $specialization)
+	    	<option value="{{ $specialization->id }}">{{$specialization->Name}}</option>
 	    	@endforeach
 	    </select>
 	  </div>
