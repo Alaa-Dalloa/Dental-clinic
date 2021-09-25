@@ -50,7 +50,7 @@ public function edit ($id)
 }
 public function update($id , Request $request)
 {
-    $reveal= doctor::find($id);
+    $reveal= reveal::find($id);
     $reveal->drug = $request->drug ;
     $reveal->price=$request->price;
     $reveal->doctor_id=$request->doctor_id;
