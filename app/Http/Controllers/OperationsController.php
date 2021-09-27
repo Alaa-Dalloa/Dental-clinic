@@ -4,34 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Operation;
-<<<<<<< HEAD
-use App\Doctor;
-use App\Patient;
-use App\Specialization;
-=======
-use App\Specialization;
-use App\Doctor;
-use App\Patient;
 
->>>>>>> 46f03447bb4ed61d537ac1a3f3a5c521c77bc1d8
+use App\Doctor;
+use App\Patient;
+use App\Specialization;
 
 
 class Operationscontroller extends Controller
 {
-<<<<<<< HEAD
-   public function create(){
-	      $doctors= Doctor::all();
-	      $patients= patient::all();
-	      $specializations= Specialization::all();
-	   	return view('operations.create' , compact('doctors') , compact('patients') , compact('specializations'));
-=======
+
+
+
    public function create()
    {
 	    $patients= Patient::all();
         $specializations= Specialization::all();
         $doctors= Doctor::all();
 	   	return view('operations.create',compact ('patients'),compact ('specializations'),compact ('doctors'));
->>>>>>> 46f03447bb4ed61d537ac1a3f3a5c521c77bc1d8
+
    }
 
     public function store(Request $request)
@@ -49,35 +39,11 @@ class Operationscontroller extends Controller
 
     public function index()
     {
-<<<<<<< HEAD
+
       $operations= operation::all();
 	   return view('operations.index' , compact('operations'));
    }
 
-
-     public function destroy($id)
-     {
-	   $operation= operation::where('id' , $id)->first();
-		$operation->delete();
-		  return back();
-     }
-
-
-      public function edit($id)
-      {
-         $specializations= Specialization::find($id);
-         $doctors= Doctor::find($id);
-		   $patients= Patient::find($id);
-		   $operation= operation::find($id);
-	   return view ('operations.edit' , compact('operation') , compact('patients') , compact('doctors') , compact('specializations'));
-     }
-
-      public function update($id,Request $request)
-      {
-=======
-      $operations= Operation::all();
-	   return view('operations.index',compact ('operations'));
-   }
 
 
      public function destroy($id){
@@ -102,7 +68,7 @@ class Operationscontroller extends Controller
    }
 
       public function update($id,Request $request){
->>>>>>> 46f03447bb4ed61d537ac1a3f3a5c521c77bc1d8
+
 	 
 	    $operation = Operation::find($id);
 	    $operation->name        = $request->name;
