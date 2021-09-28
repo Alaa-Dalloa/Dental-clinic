@@ -20,7 +20,8 @@ class Operationscontroller extends Controller
 	    $patients= Patient::all();
         $specializations= Specialization::all();
         $doctors= Doctor::all();
-	   	return view('operations.create',compact ('patients'),compact ('specializations'),compact ('doctors'));
+		return view('operations.create',['patients'=>$patients,'specializations'=>$specializations,'doctors'=>$doctors]);
+	   //	return view('operations.create',compact ('patients'),compact ('specializations'),compact ('doctors'));
 
    }
 

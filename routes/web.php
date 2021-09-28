@@ -16,11 +16,11 @@ Route::get('/about', 'PagesController@about');
 
 Auth::routes();
 
-<<<<<<< HEAD
-//Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/about',function(){
 
-    return view('front.about');
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/',function(){
+
+    return view('welcome');
 });
 Route::get('/blog_single',function(){
 
@@ -38,7 +38,6 @@ Route::get('/doctors',function(){
 
     return view('front.doctors');
 });
-=======
 Route::get('/home', 'HomeController@index')->name('home');
 
 
@@ -114,4 +113,4 @@ Route::get('/reservations/{id}', 'ReservationsController@destroy')->name('reserv
 Route::get('/reservations/{id}/edit', 'ReservationsController@edit')->name('reservations.edit');
 Route::post('/reservations/{id}/update', 'ReservationsController@update')->name('reservations.update');
 Route::post('/reservations/store', 'ReservationsController@store')->name('reservations.store');
->>>>>>> 65ba53b394194f4c218cbae3176ed0ff662eebf9
+

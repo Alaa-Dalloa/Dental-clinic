@@ -15,7 +15,9 @@ class Revealscontroller extends Controller
    	     $patients= Patient::all();
          $specializations= Specialization::all();
          $doctors= Doctor::all();
-	   	return view('reveals.create' , compact ('specializations') ,compact ('patients') ,compact ('doctors') );
+		// return view('reveals.create',['patients'=>$patients,'specializations'=>$specializations,'doctors'=>$doctors]);
+  
+	   //	return view('reveals.create' , compact ('specializations') ,compact ('patients') ,compact ('doctors') );
    }
 
     public function store(Request $request)
