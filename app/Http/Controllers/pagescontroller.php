@@ -11,4 +11,10 @@ class pagescontroller extends Controller
       return view ('front.index');
 
     }
+
+     public function about()
+    {
+      return view ('about');
+
+    }
 }
