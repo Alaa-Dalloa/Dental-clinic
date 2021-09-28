@@ -58,16 +58,18 @@ class Operationscontroller extends Controller
    }
 
 
-      public function edit($id){
+      public function edit( $id){
 	   //$meals = meal::where('id',$id)->first();
 	   $operations = Operation::find($id);
-	   $specializations= Specialization::find($id);
-       $patients= Patient::find($id);
-       $doctor= doctor::find($id);
-
-	   return view ('operations.edit',compact ('operations'),compact ('specializations'),compact ('patients'),compact ('doctor'));
+	   $patients= Patient::all();
+        $specializations= Specialization::all();
+        $doctors= Doctor::all();
+	   return view('operations.edit',['operation'=>$operations,'patients'=>$patients,'specializations'=>$specializations,'doctors'=>$doctors]);
+	  
    }
 
+
+  
       public function update($id,Request $request){
 
 	 
@@ -78,7 +80,7 @@ class Operationscontroller extends Controller
 	    $operation->doctor_id    = $request->doctor_id;
 	    $operation->patient_id = $request->patient_id;
 	    $operation->save();
-	   	return back();
+	   	return redirect('operations');
    }
 
 

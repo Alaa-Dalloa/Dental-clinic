@@ -43,11 +43,11 @@ public function destroy($id)
 }
 public function edit ($id)
 { 
-   $patients= Patient::find($id);
-   $specializations= Specialization::find($id);
-   $doctors= doctor::find($id);
+   $patients= Patient::all();
+   $specializations= Specialization::all();
+   $doctors= doctor::all();
    $reveal= reveal::find($id);
-   return view ('reveals.edit' , compact('reveal') , compact ('specializations') , compact('doctors') , compact('patients'));
+   return view ('reveals.edit' , ['reveal'=>$reveal,'patients'=>$patients,'specializations'=>$specializations,'doctors'=>$doctors]);
 
 }
 public function update($id , Request $request)
