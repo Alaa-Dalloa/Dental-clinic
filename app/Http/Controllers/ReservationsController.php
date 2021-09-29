@@ -13,6 +13,15 @@ use App\Specialization;
 class ReservationsController extends Controller
 {
 
+<<<<<<< HEAD
+=======
+}
+public function edit ($id)
+{  $specializations= Specialization::all();
+   $patients= Patient::all();
+   $reservation= reservation::find($id);
+   return view ('reservations.edit' , compact('reservation') , compact ('specializations') , compact ('patients'));
+>>>>>>> 1a132952105a4d06eba58d9d54acb39fbabb0110
 
 
    public function create()
