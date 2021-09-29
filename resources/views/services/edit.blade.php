@@ -16,12 +16,14 @@
 			   </div>
 
 			     <div class="form-group">
-				    <label for="detailes">Detailes:</label>
-				      <textarea name="detailes"  class="form-control"   value="{{ $service->detailes}}">
-				      	
-				      </textarea>
-				  </div>
-
+			    <label for="detailes">detailes:</label>
+			    <input type="text" 
+			    class="form-control"
+			     placeholder="Enter detailes" 
+			     id="detailes"
+			     value="{{ $service->detailes}}"
+			     Name="detailes">
+			   </div>
 
 				   <div class="form-group">
 				    <label for="photo">Photo:</label>
@@ -38,7 +40,7 @@
 				    <label for="offer_id">Offer:</label>
 				    <select class="form-control" name="offer_id">
 				    	@foreach($offers as $one)
-				    	<option value="{{$one->id}}">{{$one->name}}</option>
+				    	<option value="{{$one->id}}">{{$one->Name}}</option>
 				    	@endforeach
 				    </select>
 				  </div>
