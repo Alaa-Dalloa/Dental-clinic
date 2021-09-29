@@ -48,7 +48,7 @@ use App\Offer;
 		{
 			$offers= Offer::all();
 		   $service= service::find($id);
-		   return view ('services.edit' , compact('services'),compact('offers'));
+		   return view ('services.edit' , compact('service'),compact('offers'));
 
 		}
 		public function update($id , Request $request)

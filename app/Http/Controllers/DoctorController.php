@@ -34,7 +34,7 @@ public function destroy($id)
 
 }
 public function edit ($id)
-{  $specializations= Specialization::find($id);
+{  $specializations= Specialization::all();
    $doctor= doctor::find($id);
    return view ('doctors.edit' , compact('doctor') , compact ('specializations'));
 

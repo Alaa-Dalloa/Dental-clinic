@@ -37,8 +37,8 @@ public function destroy($id)
 
 }
 public function edit ($id)
-{  $specializations= Specialization::find($id);
-   $patients= Patient::find($id);
+{  $specializations= Specialization::all();
+   $patients= Patient::all();
    $reservation= reservation::find($id);
    return view ('reservations.edit' , compact('reservation') , compact ('specializations') , compact ('patients'));
 
