@@ -6,13 +6,15 @@ use Illuminate\Http\Request;
 use App\Reservation;
 use App\Patient;
 use App\Specialization;
+use App\User;
 class ReservationsController extends Controller
 {
     public function create ()
  {
+   $user=User::find(1);
     $patients= Patient::all();
     $specializations= Specialization::all();
-   return view ('reservations.create' , compact ('specializations') , compact ('patients'));
+   return view ('reservations.create' ,['patients'=>$patients,'specializations'=>$specializations,'user'=>$user]);
  }
  public function store(Request $request)
  {
@@ -26,8 +28,9 @@ class ReservationsController extends Controller
  }
 public function index ()
  { 
+   $user=User::find(1);
   $reservations= Reservation::all();
-   return view ('reservations.index' , compact('reservations') );
+   return view ('reservations.index' , ['user'=>$user,'reservations'=>$reservations]);
  }
 public function destroy($id)
 {
@@ -40,7 +43,9 @@ public function edit ($id)
 {  $specializations= Specialization::all();
    $patients= Patient::all();
    $reservation= reservation::find($id);
-   return view ('reservations.edit' , compact('reservation') , compact ('specializations') , compact ('patients'));
+   $user=User::find(1);
+
+   return view ('reservations.edit' , compact('user'),compact('reservation') , compact ('specializations') , compact ('patients'));
 
 }
 public function update($id , Request $request)

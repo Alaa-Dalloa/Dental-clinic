@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Service;
+use App\User;
 use App\Offer;
+use App\Notifications\InvoicePaid;
 
+use Illuminate\Support\Facades\Notification;
 
 
     class ServicesController extends Controller
@@ -16,25 +19,29 @@ use App\Offer;
 		 {
 
 		   $offers= Offer::all();
-		   return view ('services.create',compact ('offers'));
+		   $user=User::find(1);
+		   return view ('services.create',compact('user'),compact ('offers'));
 
-		 	$offers= Offer::all();
-		   return view ('services.create' ,  compact ('offers'));
 
 		 }
 		 public function store(Request $request)
 		 {
+
+			$user=User::all();
 		    $service = new Service ;
 		    $service->name = $request->name ;
 		    $service->detailes=$request->detailes;
 		    $service->photo=$request->photo;
 		    $service->offer_id=$request->offer_id;
 		    $service->save();
+			Notification::send($user, new InvoicePaid($request->name));
 		    return back();
 		 }
 		public function index ()
-		 { $services= Service::all();
-		   return view ('services.index' , compact('services') );
+		 { 
+			 $services= Service::all();
+			 $user=User::find(1);
+		   return view ('services.index' ,compact('user'), compact('services') );
 		 }
 		public function destroy($id)
 		{
@@ -48,7 +55,8 @@ use App\Offer;
 		{
 			$offers= Offer::all();
 		   $service= service::find($id);
-		   return view ('services.edit' , compact('service'),compact('offers'));
+		   $user=User::find(1);
+		   return view ('services.edit' ,['user'=>$user,'offers'=>$offers,'service'=>$service]);
 
 		}
 		public function update($id , Request $request)

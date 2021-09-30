@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Patient;
+use App\User;
 class PatientController extends Controller
 {
     public function create ()
  {
-   return view ('patients.create');
+
+  $user=User::find(1);
+   return view ('patients.create',compact('user'));
  }
  public function store(Request $request)
  {
@@ -21,8 +24,10 @@ class PatientController extends Controller
     return back();
  }
 public function index ()
- { $patients= Patient::all();
-   return view ('patients.index' , compact('patients') );
+ { 
+   $patients= Patient::all();
+   $user=User::find(1);
+   return view ('patients.index' , compact('patients'),compact('user') );
  }
 public function destroy($id)
 {
@@ -34,7 +39,8 @@ public function destroy($id)
 public function edit ($id)
 {
    $patient= patient::find($id);
-   return view ('patients.edit' , compact('patient'));
+   $user=User::find(1);
+   return view ('patients.edit' , compact('patient'),compact('user'));
 
 }
 public function update($id , Request $request)

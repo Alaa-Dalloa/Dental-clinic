@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Doctor;
+
 use App\Specialization;
+use App\User;
 class DoctorController extends Controller
 {
   public function create ()
  { 
        $specializations= Specialization::all();
-       return view ('doctors.create' , compact ('specializations'));
+       $user=User::find(1);
+       return view ('doctors.create' , compact ('specializations'),compact('user'));
  }
  public function store(Request $request)
  {
@@ -23,8 +26,10 @@ class DoctorController extends Controller
     return back();
  }
 public function index ()
- { $doctors= Doctor::all();
-   return view ('doctors.index' , compact('doctors') );
+ {
+    $doctors= Doctor::all();
+    $user=User::find(1);
+   return view ('doctors.index' , compact('doctors'),compact('user') );
  }
 public function destroy($id)
 {
@@ -36,7 +41,8 @@ public function destroy($id)
 public function edit ($id)
 {  $specializations= Specialization::all();
    $doctor= doctor::find($id);
-   return view ('doctors.edit' , compact('doctor') , compact ('specializations'));
+   $user=User::find(1);
+   return view ('doctors.edit' ,['doctor'=>$doctor,'specializations'=>$specializations,'user'=>$user]);
 
 }
 public function update($id , Request $request)

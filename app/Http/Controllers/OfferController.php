@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Offer;
+use App\User;
 class OfferController extends Controller
 {
     public function create ()
  {
-   return view ('offers.create');
+  $user=User::find(1);
+   return view ('offers.create',compact('user'));
  }
  public function store(Request $request)
  {
@@ -20,8 +22,10 @@ class OfferController extends Controller
     return back();
  }
 public function index ()
- { $offers= Offer::all();
-   return view ('offers.index' , compact('offers') );
+ { 
+   $offers= Offer::all();
+   $user=User::find(1);
+   return view ('offers.index' , compact('offers') ,compact('user'));
  }
 public function destroy($id)
 {
@@ -33,7 +37,8 @@ public function destroy($id)
 public function edit ($id)
 {
    $offer= offer::find($id);
-   return view ('offers.edit' , compact('offer'));
+   $user=User::find(1);
+   return view ('offers.edit' , compact('offer'),compact('user'));
 
 }
 public function update($id , Request $request)

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Notifications\InvoicePaid;
+use App\User;
+
 class testcontroller extends Controller
 {
     /**
@@ -12,9 +15,22 @@ class testcontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+     public function testnotification(){
+        $user=User::find(1);
+        //$user = App\User::find(1);
+
+        foreach ($user->notifications as $notification) {
+        
+           echo $notification->type;
+        }
+     }
     public function index()
     {
-        //
+        $user=User::find(1);
+        return view('layouts.app',compact('user'));
+        
     }
 
     /**

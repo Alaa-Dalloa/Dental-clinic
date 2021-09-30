@@ -131,7 +131,23 @@
                               </div>
                             </li>
 
+{{-- notification --}}
 
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+    Notification
+  </a>
+  <div class="dropdown-menu">
+    @forelse ($user->notifications as $notification)
+    <a class="dropdown-item">{{$notification->data['name']}}</a>
+                              
+    @empty
+      No notification  
+    @endforelse
+   
+  
+  </div>
+</li> 
 
 
 

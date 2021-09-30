@@ -119,4 +119,8 @@ Route::post('/reservations/store', 'ReservationsController@store')->name('reserv
 
 
 
-Route::resource('/test','testcontroller');
+
+
+
+    
+

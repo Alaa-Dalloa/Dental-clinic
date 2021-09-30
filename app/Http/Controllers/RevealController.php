@@ -7,6 +7,7 @@ use App\Reveal;
 use App\Patient;
 use App\Specialization;
 use App\Doctor;
+use App\User;
 class RevealController extends Controller
 {
   public function create ()
@@ -14,7 +15,8 @@ class RevealController extends Controller
    $patients= Patient::all();
    $specializations= Specialization::all();
    $doctors= Doctor::all();
-   return view('reveals.create',['patients'=>$patients,'specializations'=>$specializations,'doctors'=>$doctors]);
+   $user=User::find(1);
+   return view('reveals.create',['user'=>$user,'patients'=>$patients,'specializations'=>$specializations,'doctors'=>$doctors]);
   
   // return view ('reveals.create' , compact ('specializations') , compact('patients') , compact('doctors'));
  }
@@ -32,7 +34,8 @@ class RevealController extends Controller
 public function index ()
  { 
     $reveals= Reveal::all();
-   return view ('reveals.index' , compact('reveals') );
+    $user=User::find(1);
+   return view ('reveals.index' ,compact('user'), compact('reveals') );
  }
 public function destroy($id)
 {
@@ -47,7 +50,8 @@ public function edit ($id)
    $specializations= Specialization::all();
    $doctors= doctor::all();
    $reveal= reveal::find($id);
-   return view ('reveals.edit' , ['reveal'=>$reveal,'patients'=>$patients,'specializations'=>$specializations,'doctors'=>$doctors]);
+   $user=User::find(1);
+   return view ('reveals.edit' , ['user'=>$user,'reveal'=>$reveal,'patients'=>$patients,'specializations'=>$specializations,'doctors'=>$doctors]);
 
 }
 public function update($id , Request $request)

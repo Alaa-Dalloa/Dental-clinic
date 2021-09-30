@@ -7,6 +7,7 @@ use App\Operation;
 
 use App\Doctor;
 use App\Patient;
+use App\User;
 use App\Specialization;
 
 
@@ -20,7 +21,8 @@ class Operationscontroller extends Controller
 	    $patients= Patient::all();
         $specializations= Specialization::all();
         $doctors= Doctor::all();
-		return view('operations.create',['patients'=>$patients,'specializations'=>$specializations,'doctors'=>$doctors]);
+		$user=User::find(1);
+		return view('operations.create',['user'=>$user,'patients'=>$patients,'specializations'=>$specializations,'doctors'=>$doctors]);
 	   //	return view('operations.create',compact ('patients'),compact ('specializations'),compact ('doctors'));
 
    }
@@ -42,7 +44,8 @@ class Operationscontroller extends Controller
     {
 
       $operations= operation::all();
-	   return view('operations.index' , compact('operations'));
+	  $user=User::find(1);
+	   return view('operations.index' , compact('operations'),compact('user'));
    }
 
 
@@ -64,7 +67,8 @@ class Operationscontroller extends Controller
 	   $patients= Patient::all();
         $specializations= Specialization::all();
         $doctors= Doctor::all();
-	   return view('operations.edit',['operation'=>$operations,'patients'=>$patients,'specializations'=>$specializations,'doctors'=>$doctors]);
+		$user=User::find(1);
+	   return view('operations.edit',['user'=>$user,'operation'=>$operations,'patients'=>$patients,'specializations'=>$specializations,'doctors'=>$doctors]);
 	  
    }
 
