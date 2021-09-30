@@ -18,16 +18,13 @@ class DoctorController extends Controller
       return view('doctors.create',['specializations'=>$specializations]);
       // return view('operations.create',compact ('patients'),compact ('specializations'),compact ('doctors'));
 
-<<<<<<< HEAD
-   }
-=======
-}
-public function edit ($id)
-{  $specializations= Specialization::all();
-   $doctor= doctor::find($id);
-   return view ('doctors.edit' , compact('doctor') , compact ('specializations'));
->>>>>>> 1a132952105a4d06eba58d9d54acb39fbabb0110
 
+   }
+      public function edit ($id)
+      {  $specializations= Specialization::all();
+         $doctor= doctor::find($id);
+         return view ('doctors.edit' , compact('doctor') , compact ('specializations'));
+      }
     public function store(Request $request)
     {
        $doctor = new Doctor;
@@ -59,17 +56,6 @@ public function edit ($id)
       return back();
    }
 
-
-      public function edit( $id){
-      //$meals = meal::where('id',$id)->first();
-      $doctors = doctor::find($id);
-      $specializations= Specialization::all();
-      return view('doctors.edit',['doctor'=>$doctors,'specializations'=>$specializations]);
-     
-   }
-
-
-  
       public function update($id,Request $request){
 
     

@@ -114,3 +114,6 @@ Route::get('/reservations/{id}/edit', 'ReservationsController@edit')->name('rese
 Route::post('/reservations/{id}/update', 'ReservationsController@update')->name('reservations.update');
 Route::post('/reservations/store', 'ReservationsController@store')->name('reservations.store');
 
+Route::get('/control', 'HomeController@control')->name('control');
+Route::post('/update-role/{user}', 'HomeController@updateRole');
+
