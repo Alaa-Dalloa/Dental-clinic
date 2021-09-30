@@ -27,4 +27,25 @@ class HomeController extends Controller
         $user=User::find(1);
         return view('home',compact('user'));
     }
+
+
+
+    public function control()
+    { 
+     if (Auth::user()->role == 3) 
+     {
+        return redirect('/home');
+     }
+     $users= DB::table('users')->get();
+     return view('control' , compact('users'));
+    }
+   public function updateRole( Request $request , User $user)
+    { 
+        $user->update($request->all());
+        return redirect('control');
+       
+    }
+
+
+
 }
