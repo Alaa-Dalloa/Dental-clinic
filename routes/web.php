@@ -22,6 +22,9 @@ Route::get('/',function(){
 
     return view('welcome');
 });
+
+
+
 Route::get('/blog_single',function(){
 
     return view('front.blog_single');
@@ -103,8 +106,7 @@ Route::get('/services/{id}', 'ServicesController@destroy')->name('services.destr
 Route::get('/services/{id}/edit', 'ServicesController@edit')->name('services.edit');
 Route::post('/services/{id}/update', 'ServicesController@update')->name('services.update');
 Route::post('/services/store', 'ServicesController@store')->name('services.store');
-
-
+Route::get('/services/{name}/show', 'ServicesController@show')->name('services.show');
 
 
  Route::get('/reservations/create', 'ReservationsController@create')->name('reservations.create');
@@ -119,6 +121,9 @@ Route::post('/reservations/store', 'ReservationsController@store')->name('reserv
 
 
 
+
+Route::get('/control', 'HomeController@control')->name('control');
+Route::post('/update-role/{user}', 'HomeController@updateRole')->name('reservations.update');
 
 
 

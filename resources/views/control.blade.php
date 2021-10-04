@@ -13,22 +13,22 @@
       </tr>
     </thead>
     <tbody>
-      @foreach ($users as $user)
+      @foreach ($users as $user1)
       <tr>
-        <th scope="row">{{ $user->id}}</th>
-        <td>{{$user->name}}</td>
-        <td>{{$user->email}}</td>
+        <th scope="row">{{ $user1->id}}</th>
+        <td>{{$user1->name}}</td>
+        <td>{{$user1->email}}</td>
         <td>
-          @if (Auth::user()->role == 2 || $user->id == 1)
+          @if (Auth::user()->role == 2 || $user1->id == 1)
           <b>Disable</b>
           @else
           <div class="form-group" style="margin-bottom: 0 px ;">
-            <form method="post" action="/update-role/{{$user->id}}">
+            <form method="post" action="/update-role/{{$user1->id}}">
               @csrf
               <select class="form-control" name="role" onchange="this.form.submit();">
-                <option value="1" {{ ($user->role) ==1 ? 'selected' : null }}>Admin</option>
-                <option value="2"  {{ ($user->role) ==2 ? 'selected' : null }}>Maneger</option>
-                <option value="3"  {{ ($user->role) ==3 ? 'selected' : null }}>User</option>
+                <option value="1" {{ ($user1->role) ==1 ? 'selected' : null }}>Admin</option>
+                <option value="2"  {{ ($user1->role) ==2 ? 'selected' : null }}>Maneger</option>
+                <option value="3"  {{ ($user1->role) ==3 ? 'selected' : null }}>User</option>
               </select>
             </form>
           </div>

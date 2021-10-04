@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
+use DB;
 
 class HomeController extends Controller
 {
@@ -32,17 +34,19 @@ class HomeController extends Controller
 
     public function control()
     { 
+        $user=User::find(1);
      if (Auth::user()->role == 3) 
      {
-        return redirect('/home');
+        return redirect('/home',compact('user'));
      }
      $users= DB::table('users')->get();
-     return view('control' , compact('users'));
+     return view('control' , compact('users'),compact('user'));
     }
    public function updateRole( Request $request , User $user)
     { 
+        $user=User::find(1);
         $user->update($request->all());
-        return redirect('control');
+        return redirect('control',compact('user'));
        
     }
 

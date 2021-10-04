@@ -9,13 +9,13 @@ use App\Offer;
 use App\Notifications\InvoicePaid;
 
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\DB;
 
 class ServicesController extends Controller
 {
 
 
-
-<<<<<<< HEAD
+	public function create (){
 		   $offers= Offer::all();
 		   $user=User::find(1);
 		   return view ('services.create',compact('user'),compact ('offers'));
@@ -29,7 +29,7 @@ class ServicesController extends Controller
 		    $service = new Service ;
 		    $service->name = $request->name ;
 		    $service->detailes=$request->detailes;
-		    $service->photo=$request->photo;
+		  //  $service->photo=$request->photo;
 		    $service->offer_id=$request->offer_id;
 		    $service->save();
 			Notification::send($user, new InvoicePaid($request->name));
@@ -41,35 +41,6 @@ class ServicesController extends Controller
 			 $user=User::find(1);
 		   return view ('services.index' ,compact('user'), compact('services') );
 		 }
-=======
-   public function create()
-   {
-       $offers= Offer::all();
-      return view('services.create',['offers'=>$offers]);
-      // return view('operations.create',compact ('patients'),compact ('specializations'),compact ('doctors'));
-
-   }
-
-    public function store(Request $request)
-    {
-       $service = new Service;
-       $service->name        = $request->name;
-       $service->detailes       = $request->detailes;
-       $service->photo = $request->photo;
-       $service->offer_id = $request->offer_id;
-
-       $service->save();
-         return back();
-   }
-
-    public function index()
-    {
-
-      $services= service::all();
-      return view('services.index' , compact('services'));
-    }
-		
->>>>>>> 344ad947af4a9641d24a0890473f8b4bdc53eae7
 		public function destroy($id)
 		{
 		  $service= service::where('id' , $id)->first();
@@ -91,10 +62,21 @@ class ServicesController extends Controller
 		    $service = new Service ;
 		    $service->name = $request->name ;
 		    $service->detailes=$request->detailes;
-		    $service->photo=$request->photo;
+		 //   $service->photo=$request->photo;
 		    $service->offer_id=$request->offer_id;
 		    $service-> save();
 		    return back();
+		}
+
+
+
+
+
+		public function show($name)
+		{
+			$user=User::find(1);
+			$serviecs=DB::table('Services')->where(['name'=>$name] )->get();
+             return view('ss',['user'=>$user,'serviecs'=>$serviecs]);
 		}
 }
 

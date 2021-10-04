@@ -47,7 +47,7 @@
                                   </div>
                                 </li>
 
-
+                       
                            <!-- Specializations -->
                                 <li class="nav-item dropdown">
                                   <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -95,40 +95,26 @@
                                   </div>
                                 </li>
 
+                                                         
+                                {{-- notification --}}
 
-<<<<<<< HEAD
-{{-- notification --}}
 
-<li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-    Notification
-  </a>
-  <div class="dropdown-menu">
-    @forelse ($user->notifications as $notification)
-    <a class="dropdown-item">{{$notification->data['name']}}</a>
-                              
-    @empty
-      No notification  
-    @endforelse
-   
-  
-  </div>
-</li> 
-=======
-                                <!-- Dropdown -->
+
                                 <li class="nav-item dropdown">
                                   <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                    Offers
+                                    Notification
                                   </a>
                                   <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{route('offers.index')}}">All Offers</a>
-                                    <a class="dropdown-item" href="{{route ('offers.create')}}">Add Offers</a>
+                                    @forelse ($user->notifications as $notification)
+                                    <a class="dropdown-item" href="{{route('services.show',$notification->data['name'])}}">{{$notification->data['name']}}</a>
+                                  
+                                    @empty
+                                      No notification  
+                                    @endforelse
+                                   
+                                  
                                   </div>
-                                </li>
-
->>>>>>> 344ad947af4a9641d24a0890473f8b4bdc53eae7
-
-
+                                </li> 
                                   <!-- Services -->
                                 <li class="nav-item dropdown">
                                   <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -166,6 +152,12 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
+
+
+                            <li class="nav-item">
+                              <a class="nav-link" href="{{ route('control') }}">{{ __('control') }}</a>
+                          </li>
+
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
