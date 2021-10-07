@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', 'pagescontroller@index');
-Route::get('/about', 'PagesController@about');
+/*Route::get('/', 'pagescontroller@index');
+Route::get('/about', 'PagesController@about');*/
 
 Auth::routes();
 
@@ -126,6 +126,13 @@ Route::get('/control', 'HomeController@control')->name('control');
 Route::post('/update-role/{user}', 'HomeController@updateRole')->name('reservations.update');
 
 
+Route::get('/', 'ViewController@index');
+Route::get('/index', 'ViewController@index');
+Route::get('/about', 'ViewController@about');
+Route::get('/blog', 'ViewController@blog');
+Route::get('/contact', 'ViewController@contact');
+Route::get('/doctors', 'ViewController@doctors');
+Route::get('/services', 'ViewController@services');
 
     
 

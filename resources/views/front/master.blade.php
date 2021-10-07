@@ -221,4 +221,5 @@
     </body>
   </html>
 
+@yield('contents')
   

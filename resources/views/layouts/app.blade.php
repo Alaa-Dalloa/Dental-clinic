@@ -96,25 +96,7 @@
                                 </li>
 
                                                          
-                                {{-- notification --}}
-
-
-
-                                <li class="nav-item dropdown">
-                                  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                    Notification
-                                  </a>
-                                  <div class="dropdown-menu">
-                                    @forelse ($user->notifications as $notification)
-                                    <a class="dropdown-item" href="{{route('services.show',$notification->data['name'])}}">{{$notification->data['name']}}</a>
-                                  
-                                    @empty
-                                      No notification  
-                                    @endforelse
-                                   
-                                  
-                                  </div>
-                                </li> 
+                              
                                   <!-- Services -->
                                 <li class="nav-item dropdown">
                                   <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -140,6 +122,27 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('control')}}">Control</a>
                                 </li>
+                           @else
+
+                               {{-- notification --}}
+
+                                <li class="nav-item dropdown">
+                                  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                    Notification
+                                  </a>
+                                  <div class="dropdown-menu">
+                                    @forelse ($user->notifications as $notification)
+                                    <a class="dropdown-item" href="{{route('services.show',$notification->data['name'])}}">{{$notification->data['name']}}</a>
+                                  
+                                    @empty
+                                      No notification  
+                                    @endforelse
+                                   
+                                  
+                                  </div>
+                                </li> 
+
+
                             @endif
                        @endif
                    </ul>
